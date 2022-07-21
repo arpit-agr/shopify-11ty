@@ -27,6 +27,8 @@
   "dependencies": {
     "@11ty/eleventy-plugin-directory-output": "^1.0.1",
     "clean-css": "^5.3.0",
+    "dotenv": "^16.0.1",
+    "eleventy-plugin-shopify": "^0.0.5",
     "html-minifier": "^4.0.0"
   }
 }

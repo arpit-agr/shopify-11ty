@@ -2,9 +2,21 @@ const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 
+const pluginShopify = require("eleventy-plugin-shopify");
+require("dotenv").config();
+const { SHOPIFY_STORE_URL, SHOPIFY_ACCESS_TOKEN, SHOPIFY_API_VERSION } = process.env;
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.setQuietMode(true);
+
+  //Plugins
   eleventyConfig.addPlugin(directoryOutputPlugin);
+  eleventyConfig.addPlugin(pluginShopify, {
+    url: SHOPIFY_STORE_URL,
+    key: SHOPIFY_ACCESS_TOKEN,
+    version: SHOPIFY_API_VERSION,
+    // optional: shopQuery, productsQuery, collectionsQuery, pagesQuery, articlesQuery
+  });
 
   //Transforms
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
