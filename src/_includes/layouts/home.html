@@ -2,4 +2,12 @@
 
 {%- block content -%}
   {{ content | safe }}
+  {% if shopify.products.length > 0 %}
+    <h2>Products</h2>
+    <ul>
+      {% for product in shopify.products %}
+        <li><a href="/products/{{ product.handle }}/">{{ product.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {%- endblock -%}

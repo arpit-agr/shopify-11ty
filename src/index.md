@@ -3,4 +3,4 @@ title: Hello World
 layout: "layouts/home.html"
 ---
 
-# {{ title }}
+# {{ shopify.shop.name }}
